@@ -296,7 +296,7 @@ document.getElementById('game2').onclick = function (event) {
                        myField[i][j].style.background = 'red'; 
                        myField2[i][j].innerHTML='1';
                        biloPopadanie++;
-                       if (!proverkaRazmera(myField,i,j) && forClick==0) {
+                       if (!checkSize(myField,i,j) && forClick==0) {
                            haloMarkings(myField2,i,j);
                            biloPopadanie=0;
                            forClick=0;
@@ -348,7 +348,7 @@ function checkAvailability (arr,x,y) {
     }
 }
 
-function proverkaRazmera (arr,x,y) {
+function checkSize (arr,x,y) {
     sizeIndicator=0;
     if ((x-1>-1) && arr[x-1][y].style.background == 'black') {
         sizeIndicator++;
@@ -481,7 +481,7 @@ function stepComp () {
         } else if ((b[one][two].style.background) == 'black' ){
             b[one][two].style.background = 'red';
             b[one][two].innerHTML = '1';
-            if (proverkaRazmera(b,one,two)) {
+            if (checkSize(b,one,two)) {
                 middleIndicator = sizeIndicator;
                 n++;
             } else {
@@ -506,7 +506,7 @@ function stepComp () {
                     } else {
                         b[one-1][two].style.background = 'red';
                         b[one-1][two].innerHTML = '1';
-                        if (proverkaRazmera(b,one-1,two)) {
+                        if (checkSize(b,one-1,two)) {
                             n++;
                         } else {
                             haloMarkings(b,one-1,two);
@@ -526,7 +526,7 @@ function stepComp () {
                     } else {
                         b[one+1][two].style.background = 'red';
                         b[one+1][two].innerHTML = '1';
-                        if (proverkaRazmera(b,one+1,two)) {
+                        if (checkSize(b,one+1,two)) {
                             n++;
                         } else {
                             haloMarkings(b,one+1,two);
@@ -546,7 +546,7 @@ function stepComp () {
                     } else {
                         b[one][two-1].style.background = 'red';
                         b[one][two-1].innerHTML = '1';
-                        if (proverkaRazmera(b,one,two-1)) {
+                        if (checkSize(b,one,two-1)) {
                             n++;
                         } else {
                             haloMarkings(b,one,two-1);
@@ -566,7 +566,7 @@ function stepComp () {
                     } else {
                         b[one][two+1].style.background = 'red';
                         b[one][two+1].innerHTML = '1';
-                        if (proverkaRazmera(b,one,two+1)) {
+                        if (checkSize(b,one,two+1)) {
                             n++;
                         } else {
                             haloMarkings(b,one,two+1);
@@ -582,7 +582,7 @@ function stepComp () {
         if (side ==1) {
             b[one-2][two].style.background = 'red';
             b[one-2][two].innerHTML = '1';
-            if (proverkaRazmera(b,one-2,two)) {
+            if (checkSize(b,one-2,two)) {
                 n++;
             } else {
                 haloMarkings(b,one-2,two);
@@ -591,7 +591,7 @@ function stepComp () {
         } else if (side ==2) {
             b[one+2][two].style.background = 'red';
             b[one+2][two].innerHTML = '1';
-            if (proverkaRazmera(b,one+2,two)) {
+            if (checkSize(b,one+2,two)) {
                 n++;
             } else {
                 haloMarkings(b,one+2,two);
@@ -600,7 +600,7 @@ function stepComp () {
         } else if (side ==3) {
             b[one][two-2].style.background = 'red';
             b[one][two-2].innerHTML = '1';
-            if (proverkaRazmera(b,one,two-2)) {
+            if (checkSize(b,one,two-2)) {
                 n++;
             } else {
                 haloMarkings(b,one,two-2);
@@ -609,7 +609,7 @@ function stepComp () {
        } else if (side ==4) {
             b[one][two+2].style.background = 'red';
             b[one][two+2].innerHTML = '1';
-            if (proverkaRazmera(b,one,two+2)) {
+            if (checkSize(b,one,two+2)) {
                 n++;
             } else {
                 haloMarkings(b,one,two+2);
@@ -654,7 +654,7 @@ function middleHit () {
                 } else if (b[one-1][two].style.background == 'black') {
                     b[one-1][two].style.background = 'red';
                     b[one-1][two].innerHTML = '1';
-                    if (proverkaRazmera (b,one-1,two)) {
+                    if (checkSize (b,one-1,two)) {
                         middleHitCount++;
                         return;
                     } else {
@@ -677,7 +677,7 @@ function middleHit () {
                 } else if (b[one+1][two].style.background == 'black') {
                     b[one+1][two].style.background = 'red';
                     b[one+1][two].innerHTML = '1';
-                    if (proverkaRazmera (b,one+1,two)) {
+                    if (checkSize (b,one+1,two)) {
                         middleHitCount++;
                         return;
                     } else {
@@ -700,7 +700,7 @@ function middleHit () {
                 } else if (b[one][two-1].style.background == 'black') {
                     b[one][two-1].style.background = 'red';
                     b[one][two-1].innerHTML = '1';
-                    if (proverkaRazmera (b,one,two-1)) {
+                    if (checkSize (b,one,two-1)) {
                         middleHitCount++;
                         return;
                     } else {
@@ -723,7 +723,7 @@ function middleHit () {
                 } else if (b[one][two+1].style.background == 'black') {
                     b[one][two+1].style.background = 'red';
                     b[one][two+1].innerHTML = '1';
-                    if (proverkaRazmera (b,one,two+1)) {
+                    if (checkSize (b,one,two+1)) {
                         middleHitCount++;
                         return;
                     } else {
