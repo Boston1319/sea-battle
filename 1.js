@@ -249,7 +249,7 @@ for (let i=-5;i<15;i++) {
 }
 
 
-let biloPopadanie=0;
+let isHit=0;
 let centre = 0;
 
 function checkWinLose () {
@@ -295,21 +295,21 @@ document.getElementById('game2').onclick = function (event) {
                        myField2[i][j].style.background = 'red';
                        myField[i][j].style.background = 'red'; 
                        myField2[i][j].innerHTML='1';
-                       biloPopadanie++;
+                       isHit++;
                        if (!checkSize(myField,i,j) && forClick==0) {
                            haloMarkings(myField2,i,j);
-                           biloPopadanie=0;
+                           isHit=0;
                            forClick=0;
                            centre=0;
-                       } else if (biloPopadanie==1 && forClick==2) {
+                       } else if (isHit==1 && forClick==2) {
                            centre = 1;
-                       } else if (biloPopadanie>=1 && forClick==1) {
+                       } else if (isHit>=1 && forClick==1) {
                            forClick=0;
-                       } else if (biloPopadanie==2 && centre==1 && forClick==2) {
+                       } else if (isHit==2 && centre==1 && forClick==2) {
                            forClick=0;
-                       } else if (biloPopadanie==4 && centre==1) {
+                       } else if (isHit==4 && centre==1) {
                             haloMarkings(myField2,i,j);
-                            biloPopadanie=0;
+                            isHit=0;
                             forClick=0;
                             centre=0;   
                        }     
